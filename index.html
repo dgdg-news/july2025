@@ -3,83 +3,306 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2025년 7월호 두근두근 소식지</title>
+  <title>두근두근 방과후 소식지</title>
   <style>
-    body { font-family: 'Arial', sans-serif; line-height: 1.6; padding: 1rem; max-width: 800px; margin: auto; font-size: 1.1rem; }
-    h1, h2, h3 { color: #003366; }
-    .highlight { background: #ffffcc; padding: 0.3rem; }
-    img { width: 100%; max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px; }
-    .section { margin-top: 2.5rem; }
-    .caption { font-size: 0.95rem; color: #666; margin-top: 0.3rem; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background-color: #d8e8d8;
+      margin: 0;
+      padding: 40px 0;
+      color: #333;
+      font-size: 18px;
+    }
+    .newspaper {
+      width: 90%;
+      max-width: 900px;
+      margin: auto;
+      background: #fffef5;
+      padding: 40px;
+      border: 8px double #333;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 2.5em;
+      margin: 0;
+      color: #222;
+    }
+    .header p {
+      font-size: 1.1em;
+      color: #777;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section h2 {
+      font-size: 1.8em;
+      color: #333333;
+      background-color: #ffefd5;
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+    }
+    .section p, .section ul {
+      font-size: 1em;
+      line-height: 1.8;
+    }
+    .image-frame, .grade-image-frame, .gallery {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .image-frame img, .grade-image-frame img, .gallery img {
+      width: 100%;
+      max-width: 420px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 4px solid #ccc;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 60px;
+    }
   </style>
+  <script>
+    window.onload = function () {
+      const saved = localStorage.getItem("savedNewsletterContent");
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          const target = document.getElementById("dynamic-story");
+          if (target && parsed.text) {
+            target.innerHTML += `<p>${parsed.text}</p>`;
+          }
+        } catch (e) {
+          console.error("저장된 데이터를 파싱하는 중 오류 발생:", e);
+        }
+      }
+    };
+  </script>
 </head>
 <body>
-  <h1>🏓 제20회 과천시협회장배 탁구대회, 두근두근방과후의 빛나는 활약!</h1>
+  <div class="newspaper">
+        <img src="두근두근로고(배경없음).png" alt="두근두근 로고" class="logo">
+    <div class="header">
+      <h1>두근두근 방과후 소식지</h1>
+      <p>2025년 7월호 | 우리 아이들의 특별한 이야기</p>
+      <div style="border: 1px solid #ccc; padding: 8px; margin-top: 10px; font-size: 0.9em; display: flex; justify-content: center; gap: 30px;">
+        <span>이사장 : 딱지</span>
+        <span>발행인 : 운영위원회</span>
+        <span>편집인 : 생활이사 바스켓</span>
+        <span>이천이십오년칠월두근두근방과후소식지</span>
+      </div>
+    </div>
 
-  <p>지난 6월 22일(일), 제20회 과천시협회장배 탁구대회가 과천시민회관에서 성황리에 개최되었습니다.
-  이번 대회에 두근두근방과후에서는 아이들 9명, 선생님 및 아빠 5명, 총 14명이 참가하여 각자 멋진 활약을 펼쳤습니다.</p>
+    <div class="section">
+      <h2>이사장 인사말</h2>
+      <p>
+        안녕하세요.<br><br>
+            <p>어느덧 에어컨 없이 지내기 힘든 여름이 되었습니다. 이 뜨거운 여름, 더 뜨거운 남쪽 경주로 두근 고학년 아이들이 여행을 떠났습니다. 희한이 가끔 보내주는 사진을 보면 초록초록한 배경의 상큼함과는 달리 아이들은 더위에 지쳤는지 여기저기 널브러져 있습니다. 아이들이 직접 짠 계획표를 보면 멀리 경주까지 가서 뭐하다 오는건가 싶은 생각도 듭니다. 늦잠을 위해 아침 건너 뛰어 아점으로 먹고, 하루의 오후 전체는 자유시간입니다. 하루는 그래도 경주 시내 나들이가 계획되어 있는데 폭염에 어찌될지 모르겠네요. 
+아이들이 스스로 계획하고 준비하여 떠나는 여행의 목적과 의도가 무엇인지 잘 알고 있음에도 혹여 아이들이 재미없어 하는 건 아닐지, 힘들어만 하는 건 아닐지, 의미있는 시간과 여행이 될 지 걱정되는 것도 사실인데요, 그런 생각이 들 때마다 작은눈이 해주신 콩나물 이야기를 떠올립니다. 
+콩나물 시루에 물을 한바가지 주면 그냥 그대로 다 밑으로 떨어져 내린다고 합니다. 이렇게 흘러 가버린 물로 콩나물이 과연 잘 클까 걱정과 의문이 한가득 생긴다고 하네요. 하지만 어느날 시루에 덮여 있던 천을 열어보면 쑥쑥 자라 있는 콩나물을 보게 된다고 합니다. 돌아온 아이들에게 물어보면 더웠어, 그냥 그랬어, 또는 좋았어 한마디로 여행 소감을 끝내 버릴지도 모르겠지만 친구들과 함께 뒹군 지금의 시간이 콩나물 시루에 준 물처럼 언제가 훌쩍 커 있을 아이들의 마중물이었을 거라고 생각합니다. 
+경주에 가 있는 아이들 뿐만 아니라 두근의 모든 아이들이 두근에서 보내는 일견 무의미해 보이는 시간들이 건강하게 커나갈 우리 아이들을 위한 마중물일 거라 믿어 의심치 않습니다.
+더 더워질 7,8월 두근 모든 구성원분들 화이팅입니다! </p>
+        과천두근두근공동체교육사회적협동조합<br>
+        이사장 딱지 드림
+      </p>
+    </div>
 
-  <img src="과천탁구대회단체사진02.jpg" alt="탁구대회 단체사진 02">
-  <img src="과천탁구대회단체사진01.jpg" alt="탁구대회 단체사진 01">
-  <img src="과천탁구대회단체사진03.jpg" alt="탁구대회 단체사진 03">
+<div class="section">
+   <h2>[특집]🏓 제20회 과천시협회장배 탁구대회, 두근두근방과후의 빛나는 활약!</h2>
+    <p>지난 6월 22일(일), 제20회 과천시협회장배 탁구대회가 과천시민회관에서 성황리에 개최되었습니다.
+    이번 대회에 두근두근방과후에서는 아이들 9명, 선생님 및 아빠 5명, 총 14명이 참가하여 각자 멋진 활약을 펼쳤습니다.</p>
+    <img src="과천탁구대회단체사진01.jpg" alt="탁구대회 단체사진 01">
+    <img src="과천탁구대회단체사진02.jpg" alt="탁구대회 단체사진 02">
+    <img src="과천탁구대회단체사진03.jpg" alt="탁구대회 단체사진 03">
+  </section>
 
-  <div class="section">
-    <h2>🏆 쟁쟁한 동호인들과의 한판 대결</h2>
+  <section>
+    <h3>🏆 쟁쟁한 동호인들과의 한판 대결</h3>
     <p>이번 대회는 <strong>과탁센(과천서 탁구가 센 동호회의 약칭)</strong>을 비롯해 강옥성탁구클럽, 과천써밋탁구회,
     문원탁구클럽, 과천시청, 과천동호회 등 과천 지역 내 실력 있는 동호회 소속 참가자들이 대거 출전하여 열띤 승부를 펼쳤습니다.</p>
-  </div>
+  </section>
 
-  <div class="section">
-    <h2>🥇 주요 성과 요약</h2>
-
-    <h3>▲ 개인전 8부 우승 - 방준우</h3>
+  <section>
+    <h3>🥇 주요 성과 요약</h3>
+    <h4>▲ 개인전 8부 우승 - 방준우</h4>
     <p>어린 나이에도 불구하고 날카로운 공격과 침착한 경기 운영으로 8부 우승을 거머쥐었습니다.
     특히 결승전에서는 노란티를 입은 두근의 뜨거운 응원 열기가 코트를 가득 메웠고, 상대 선수가 당황할 정도로 열정적인 분위기를 이끌었습니다.</p>
     <img src="과천탁구대회개인전(8부)우승(방준우).jpg" alt="방준우 우승">
 
-    <h3>▲ 단체전 초심부 3위 - 한결빠, 김주원, 선우빠</h3>
+    <h4>▲ 단체전 초심부 3위 - 한결빠, 김주원, 선우빠</h4>
     <p>끈끈한 팀워크로 단체전 3위를 차지하며 두근의 단합력을 증명했습니다.</p>
     <img src="과천탁구대회단체전3위(한결빠주원선우빠).jpg" alt="단체전 3위">
 
-    <h3>▲ 단체전 초심부 8강 - 김대연, 박이현, 대연빠</h3>
+    <h4>▲ 단체전 초심부 8강 - 김대연, 박이현, 대연빠</h4>
     <p>초심부 또 다른 조합팀도 안정된 경기력으로 8강에 오르며 실력을 입증했습니다.</p>
 
-    <h3>▲ 단체전 5~8부 8강 - 이선우, 방준우, 한결</h3>
+    <h4>▲ 단체전 5~8부 8강 - 이선우, 방준우, 한결</h4>
     <p>상위 부서 경기에서도 두근 아이들이 대등한 실력을 펼치며 8강에 진출, 탁월한 잠재력을 보여주었습니다.</p>
 
-    <h3>🎯 개인전 주요 성과</h3>
+    <h3>🎯 개인전 주요 결과</h3>
     <ul>
-      <li>이선우(7부) – 16강</li>
       <li>김대연(초심) – 8강</li>
       <li>한빈빠(초심) – 8강</li>
+      <li>이선우(7부) – 16강</li>
       <li>박은강(초심) – 16강</li>
     </ul>
     <img src="과천탁구대회사진(한결).jpg" alt="한결 경기 중">
-  </div>
+  </section>
 
-  <div class="section">
-    <h2>🟡 두근 노란티, 코트를 물들이다</h2>
+  <section>
+    <h3>🟡 두근 노란티, 코트를 물들이다</h3>
     <p>경기장 곳곳에서 두근두근팀 시합이 있는 곳에서는 <em>“노란 티 너무 예쁘다”</em>, <em>“작년엔 학부모까지 총출동해서 대회장이 온통 노란 물결이었다”</em>,
-    <em>“아이들이 너무 자신감 있게 잘 친다”</em>, <em>“쟤네들 우습게 봤다가 큰 코 다친다”</em>는 등의 이야기들이 들려왔습니다.</p>
-  </div>
+    <em>“아이들이 너무 자신감 있게 잘 친다”</em>, <em>“쟤네들 우습게 봤다가 큰 코 다친다”</em>는 등의 참가자들 이야기들이 들려왔습니다.</p>
+  </section>
 
-  <div class="section">
-    <h2>🌟 아이들의 놀이는 곧 성장의 무대</h2>
+  <section>
+    <h3>🌟 아이들의 놀이는 곧 성장의 무대</h3>
     <p>이번 대회를 통해 다시 한 번 확인된 것은, <strong>“두근에서의 신나는 놀이가 탁구대회에서 빛을 발하고 있다”</strong>는 사실입니다.
-    탁구는 단순한 스포츠를 넘어, 아이들이 협력하고 성장하며 자신감을 키우는 무대가 되었습니다.</p>
+    대회 참여를 거듭할수록 탁구는 단순한 스포츠를 넘어, 아이들이 협력하고 성장하며 자신감을 키우는 무대가 되었습니다.</p>
 
-    <p>무엇보다 이번 대회의 성과가 두근 내에서 탁구놀이에 다시 불을 지피고,
+    <p>무엇보다 이번 대회의 성과가 잠시 주춤하던 두근 내에서 탁구놀이에 다시 불을 지피고,
     아이들과 아마들이 함께하는 즐거운 운동 문화로 활성화되기를 기대합니다.</p>
-  </div>
+  </section>
 
-  <div class="section">
-    <h2>👏 특별한 감사</h2>
+  <section>
+    <h3>👏 특별한 감사</h3>
     <p>이번 대회 참가 신청부터 신경써주시고, 경기 당일에도 멀리서 새벽같이 와주셔서 아이들이 경기에 집중할 수 있도록
     끝까지 챙겨주시며 지켜봐주신 <strong>작은눈</strong>에게 깊은 감사의 마음을 전합니다.</p>
 
     <p>✍️ 두근두근방과후 탁구놀이로 시작한 탁구에 대한 도전과 열정은 이번 대회에서도 그 위상을 떨치며 지역 사회에 감동을 주었습니다.
     앞으로도 계속될 팀 두근두근의 성장 여정을 응원합니다!</p>
+  </section>
+
   </div>
 
+
+    
+    <div class="section">
+      <h2>2025년 6월 주요 활동</h2>
+      <ul>
+        <li>전체 나들이(청계산, 과천향교)</li>
+        <li>된장국 끓이기(아리 1-2학년 위주 + 3학년 두근사진관)</li>
+        <li>카레 만들기(칼 연습), 저녁 시간, 영화 상영</li>
+        <li>양말목 공예(주주) – 도어벨 만들기</li>
+        <li>목공(작은눈) – 가면 만들기</li>
+        <li>문원 체육공원 – 문체축구, 문체 마당놀이</li>
+        <li>포로탈출</li>
+        <li>해방시 클럽</li>
+        <li>4학년 서울대공원 캠핑 (1박 2일)</li>
+        <li>5, 6학년 프로젝트 활동 (딸기청 판매, 6월말 경주 예정)</li>
+        <li>감정 사진집</li>
+        <li>책퀴즈 (아리)</li>
+      </ul>
+    </div>
+<div class="section">
+  <h2>🌿 6월 전체나들이 후기</h2>
+
+</div>
+
+<div class="section">
+
+</div>
+
+<div class="section">
+  <h2>🎉 어린이날 맞이 과자파티</h2>
+  
+  
+</div>
+
+  <div class="section">
+      <h2>두근두근 소식</h2>
+      
+
+ </div>
+
+    <div class="section">
+  <h2>📢 우리동네 행사 안내</h2>
+
+  </div>
+
+  
+  <h3>🏓 제20회 과천시협회장배 탁구대회</h3>
+
+</div>
+
+    <div class="section">
+  <h2>조합원 칼럼</h2>
+
+  
+</div>
+
+<div class="section">
+  <h2>📅 다음 달 미리보기</h2>
+  <p>다가오는 7월, 두근에서는 더욱 다채로운 활동이 기다리고 있어요!<br>
+  함께 준비하고 기대해 주세요 😊</p>
+  <ul style="font-size: 1.1em; line-height: 1.8;">
+    <li>🎨 픽사 전시회 관람 (아리)</li>
+    <li>🌱 EM 흑공 만들기</li>
+    <li>💎 바다유리 목걸이 만들기</li>
+    <li>🧘 안마봉 만들기 체험 (주주)</li>
+    <li>🚌 5,6학년 경주 프로젝트 첫 여행 (희한, 아리)</li>
+    <li>🏓 탁구대회 참가 (예상 일정: 6월 22일) (작은눈)</li>
+    <li>🏛 역사탐방 (서대문 형무소 – 6월 14일 토요일 예정) (작은눈)</li>
+  </ul>
+</div>
+
+        <div class="section">
+      <h2>6월 아마활동 이야기 👨‍👩‍👧‍👦</h2>
+      <p>[글 : 19기 찬희맘 석도사]
+
+</p>
+      <div class="image-frame">
+        <img src="6월호_아마활동01.png" alt="아마활동 이미지">
+        <img src="6월호_아마활동02.png" alt="아마활동 이미지">
+        <img src="6월호_아마활동03.png" alt="아마활동 이미지">
+        <img src="6월호_아마활동04.png" alt="아마활동 이미지">
+        <img src="6월호_아마활동05.png" alt="아마활동 이미지">
+        <img src="6월호_아마활동06.png" alt="아마활동 이미지">
+      </div>
+    </div>
+
+    <div class="section">
+  <h2>🙏 감사합니다</h2>
+
+</div>
+    <div class="footer">
+  <p>두근두근 방과후 소식지 | Copyright © 과천두근두근공동체교육사회적협동조합 All Rights Reserved. | 조합가입문의: 02-504-7643</p>
+  <p>조합가입 및 상담문의 : 홍보이사 튤립 (010-3469-0585 / 상담문자환영)</p>
+  <p>
+    <a href="https://blog.naver.com/2g2g4kids" target="_blank">
+      <img src="naver-blog-icon.png" alt="네이버 블로그" style="height: 20px; vertical-align: middle;"> 네이버 블로그
+    </a> |
+    <a href="https://cafe.naver.com/2g2g4kids" target="_blank">
+      <img src="naver-cafe-icon.png" alt="네이버 카페" style="height: 20px; vertical-align: middle;"> 네이버 카페
+    </a> |
+    <a href="https://www.instagram.com/2g2g4kids" target="_blank">
+      <img src="instagram-icon.png" alt="인스타그램" style="height: 20px; vertical-align: middle;"> 인스타그램
+    </a>
+  </p>
+</div>
+  </div>
 </body>
 </html>
