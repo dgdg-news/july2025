@@ -3,73 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2025년 7월호 두근두근 소식지</title>
+  <title>두근두근 방과후 소식지</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      line-height: 1.6;
-      padding: 1rem;
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.1rem;
-      background-color: #fffef8;
-      color: #222;
-    }
-    header {
-      text-align: center;
-      padding: 1rem 0;
-      border-bottom: 1px solid #ccc;
-    }
-    header h1 {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background-color: #d8e8d8;
       margin: 0;
-      color: #2a4d69;
-      font-size: 1.8rem;
+      padding: 40px 0;
+      color: #333;
+      font-size: 18px;
     }
-    section {
-      margin-top: 2rem;
-    }
-    h2, h3 {
-      color: #003366;
-    }
-    img {
-      width: 100%;
-      max-width: 420px;
-      height: auto;
-      margin-top: 1rem;
-      border-radius: 8px;
-    }
-    .caption {
-      font-size: 0.95rem;
-      color: #666;
-      margin-top: 0.3rem;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    li {
-      margin-bottom: 0.3rem;
+    .newspaper {
+      width: 90%;
+      max-width: 900px;
+      margin: auto;
+      background: #fffef5;
+      padding: 40px;
+      border: 8px double #333;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      position: relative;
     }
     .logo {
-      max-width: 180px;
-      margin: auto;
-      display: block;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: auto;
     }
-    img {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    display: block;
-    margin: 1rem auto;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 2.5em;
+      margin: 0;
+      color: #222;
+    }
+    .header p {
+      font-size: 1.1em;
+      color: #777;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section h2 {
+      font-size: 1.8em;
+      color: #333333;
+      background-color: #ffefd5;
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+    }
+    .section p, .section ul {
+      font-size: 1em;
+      line-height: 1.8;
+    }
+    .image-frame, .grade-image-frame, .gallery {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .image-frame img, .grade-image-frame img, .gallery img {
+      width: 100%;
+      max-width: 420px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 4px solid #ccc;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 60px;
+    }
   </style>
+  <script>
+    window.onload = function () {
+      const saved = localStorage.getItem("savedNewsletterContent");
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          const target = document.getElementById("dynamic-story");
+          if (target && parsed.text) {
+            target.innerHTML += `<p>${parsed.text}</p>`;
+          }
+        } catch (e) {
+          console.error("저장된 데이터를 파싱하는 중 오류 발생:", e);
+        }
+      }
+    };
+  </script>
 </head>
 <body>
-  <header>
-    <img src="두근두근로고(배경없음).png" alt="두근두근 로고" class="logo">
-    <h1>📢 2025년 7월호 두근두근 소식지</h1>
-  </header>
+  <div class="newspaper">
+        <img src="두근두근로고(배경없음).png" alt="두근두근 로고" class="logo">
+    <div class="header">
+      <h1>두근두근 방과후 소식지</h1>
       <p>2025년 7월호 | 우리 아이들의 특별한 이야기</p>
       <div style="border: 1px solid #ccc; padding: 8px; margin-top: 10px; font-size: 0.9em; display: flex; justify-content: center; gap: 30px;">
         <span>이사장 : 딱지</span>
@@ -130,6 +167,7 @@
 
     <h3>🎯 개인전 주요 결과</h3>
     <ul>
+      <li>방준우(8부) – 우승</li>
       <li>김대연(초심) – 8강</li>
       <li>한빈빠(초심) – 8강</li>
       <li>이선우(7부) – 16강</li>
@@ -141,7 +179,7 @@
   <section>
     <h3>🟡 두근 노란티, 코트를 물들이다</h3>
     <p>경기장 곳곳에서 두근두근팀 시합이 있는 곳에서는 <em>“노란 티 너무 예쁘다”</em>, <em>“작년엔 학부모까지 총출동해서 대회장이 온통 노란 물결이었다”</em>,
-    <em>“아이들이 너무 자신감 있게 잘 친다”</em>, <em>“쟤네들 우습게 봤다가 큰 코 다친다”</em>는 등의 참가자들 이야기들이 들려왔습니다.</p>
+    <em>“아이들이 너무 자신감 있게 잘 친다”</em>, <em>“어리다고 우습게 봤다가 큰 코 다친다”</em>는 등의 참가자들 이야기들이 들려왔습니다.</p>
   </section>
 
   <section>
