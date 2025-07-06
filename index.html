@@ -24,9 +24,8 @@
       position: relative;
     }
     .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
+      display: block;
+      margin: 0 auto 20px auto;
       width: 100px;
       height: auto;
     }
@@ -42,6 +41,20 @@
     .header p {
       font-size: 1.1em;
       color: #777;
+    }
+    .info-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      font-size: 0.9em;
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+    .info-box span {
+      flex: 1 1 120px;
+      text-align: center;
     }
     .section {
       margin-bottom: 40px;
@@ -84,6 +97,12 @@
       color: #555;
       margin-top: 60px;
     }
+    @media (max-width: 500px) {
+      .info-box {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
   </style>
   <script>
     window.onload = function () {
@@ -104,11 +123,11 @@
 </head>
 <body>
   <div class="newspaper">
-        <img src="두근두근로고(배경없음).png" alt="두근두근 로고" class="logo">
+    <img src="두근두근로고(배경없음).png" alt="두근두근 로고" class="logo">
     <div class="header">
       <h1>두근두근 방과후 소식지</h1>
       <p>2025년 7월호 | 우리 아이들의 특별한 이야기</p>
-      <div style="border: 1px solid #ccc; padding: 8px; margin-top: 10px; font-size: 0.9em; display: flex; justify-content: center; gap: 30px;">
+      <div class="info-box">
         <span>이사장 : 딱지</span>
         <span>발행인 : 운영위원회</span>
         <span>편집인 : 생활이사 바스켓</span>
