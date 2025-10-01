@@ -103,6 +103,84 @@
         gap: 5px;
       }
     }
+  /* 부드러운 스크롤 */
+html { scroll-behavior: smooth; }
+
+/* 상단 빠른이동 패널 */
+.cover-quick{
+  margin: 14px 0 22px;
+  padding: 14px;
+  background: #f7fbff;
+  border: 1px solid #e3eefc;
+  border-radius: 12px;
+}
+.cover-quick .cover-head{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.cover-quick .cover-head img{
+  width: 44px; height: 44px; object-fit: contain;
+}
+.cover-quick .cover-title strong{ display:block; font-size: 1.05em; color:#0f355a;}
+.cover-quick .cover-title span{ color:#6b7a8c; font-size: .9em;}
+
+.cover-quick .cover-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.cover-quick .cover-grid a{
+  display: inline-block;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e9eef5;
+  border-radius: 10px;
+  padding: 10px 8px;
+  text-decoration: none;
+  color: #274b6d;
+  font-weight: 600;
+  font-size: 0.95em;
+  white-space: nowrap;           /* 한 줄 유지 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cover-quick .cover-grid a:hover{
+  background: #f1f7ff;
+  border-color: #cfe2ff;
+}
+
+/* 이미지-텍스트 겹침 대응: 갤러리/이미지 프레임 정렬 & 캡션 줄바꿈 */
+.image-frame, .gallery{ overflow: hidden; }
+.image-frame img, .grade-image-frame img, .gallery img{
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: inline-block;         /* float 방지 */
+  vertical-align: top;
+}
+
+/* 긴 제목 줄바꿈 & 줄수 제한으로 넘침 방지 */
+.section h2{
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+
+/* 모바일에서 여백+글자 크기 미세 조정 (겹침 예방) */
+@media (max-width: 480px){
+  body{ font-size: 17px; padding: 24px 0; }
+  .newspaper{ padding: 28px 18px; }
+  .logo{ width: 80px; top: 16px; left: 16px; }
+  .header h1{ font-size: 2em; }
+  .section h2{ font-size: 1.4em; padding: 10px; }
+  .section p, .section ul{ font-size: .98em; line-height: 1.75; }
+  .cover-quick{ padding: 12px; }
+  .cover-quick .cover-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
   </style>
   <script>
     window.onload = function () {
@@ -123,19 +201,29 @@
 </head>
 <body>
   <div class="newspaper">
-    <img src="두근두근로고(배경없음).png" alt="두근두근 로고" class="logo">
-    <div class="header">
-      <h1>두근두근 방과후 소식지</h1>
-      <p>2025년 7월호 | 우리 아이들의 특별한 이야기</p>
-      <div class="info-box">
-        <span>이사장 : 딱지</span>
-        <span>발행인 : 운영위원회</span>
-        <span>편집인 : 생활이사 바스켓</span>
-        <span>이천이십오년칠월두근두근방과후소식지</span>
-      </div>
+<nav class="cover-quick">
+  <div class="cover-head">
+    <img src="두근두근로고(배경없음).png" alt="두근두근 로고" />
+    <div class="cover-title">
+      <strong>두근두근 방과후 소식지</strong>
+      <span>2025년 7월호 • 빠른 이동</span>
     </div>
+  </div>
 
-    <div class="section">
+  <div class="cover-grid">
+    <a href="#greeting">💌 인사말</a>
+    <a href="#activities">🗓️ 6월 활동</a>
+    <a href="#pingpong">🏓 탁구 특집</a>
+    <a href="#festival">🎤 꼬꼬무</a>
+    <a href="#reading">📚 몰입독서</a>
+    <a href="#preview">📅 다음 달</a>
+    <a href="#ama">👨‍👩‍👧‍👦 아마활동</a>
+    <a href="#thanks">🙏 감사합니다</a>
+    <a href="#camp">🌞⛱️ 캠프 안내</a>
+  </div>
+</nav>
+
+    <div class="section" id="greeting">
     <h2>💌 이사장 인사말</h2>
     <p>어느덧 에어컨 없이 지내기 힘든 여름이 되었습니다.</p>
     <p>이 뜨거운 여름, 더 뜨거운 남쪽 경주로 두근 고학년 아이들이 여행을 떠났습니다. 희한이 가끔 보내주는 사진을 보면 초록초록한 배경의 상큼함과는 달리, 아이들은 더위에 지쳤는지 여기저기 널브러져 있습니다.</p>
@@ -151,7 +239,7 @@
     </p>
     </div>
 
-    <div class="section">
+    <div class="section" id="activities">
       <h2>🗓️ 6월 주요 활동</h2>
     <ul>
       <li>🎨 <strong>픽사 전시회 관람</strong> (18일, 24일) - 아리 인솔</li>
@@ -201,7 +289,7 @@
     </div>
   </div>
 
-<div class="section">
+<div class="section" id="pingpong">
    <h2>[특집]🏓 제20회 과천시협회장배 탁구대회, 두근두근방과후의 빛나는 활약!</h2>
     <p>지난 6월 22일(일), 제20회 과천시협회장배 탁구대회가 과천시민회관에서 성황리에 개최되었습니다.
     이번 대회에 두근두근방과후에서는 아이들 9명, 선생님 및 아빠 5명, 총 14명이 참가하여 각자 멋진 활약을 펼쳤습니다.</p>
@@ -283,7 +371,7 @@
 
   </div>
     
-<div class="section">
+<div class="section" id="festival">
   <h2>🎉 꼬꼬무 공연 참여후기</h2>
     <h3>🎤 “우리의 노래로 마음을 나눠요”</h3>
     <p><strong>제4회 문원동 꼬꼬무 문화축제, 6학년 두근 친구들의 특별한 무대</strong></p>
@@ -303,7 +391,7 @@
   
 </div>
  
-<div class="section">
+<div class="section" id="reading">
       <h2>📚 몰입독서, 그 의미와 가능성을 열다</h2>
     <p>6월27일(금) 교육소위 주관으로 전 조합원을 대상으로 진행된 몰입독서 강연은 책과 아이, 그리고 부모의 관계를 다시 돌아보게 하는 뜻깊은 시간이었습니다. 아이에게 책 읽는 습관을 길러주는 방법, 몰입독서의 실제 경험과 노하우, 그리고 IB교육과의 연계까지—다양한 관점에서 깊이 있는 배움이 있었습니다.</p>
     <ul>
@@ -326,7 +414,7 @@
 
 </div>
 
-<div class="section">
+<div class="section" id="preview">
   <h2>📅 다음 달 미리보기</h2>
   <p>다가오는 7월, 두근에서는 아이들 방학기간을 맞이하여 두근체험 여름캠프(8월중)를 준비하고 있어요!<br>
   더 즐거운 방학을 맞이할 수 있도록 함께 준비하고 기대해 주세요 😊</p>
@@ -338,7 +426,7 @@
   </ul>
 </div>
 
-<div class="section">
+<div class="section" id="ama">
   <h2>6월 아마활동 이야기 👨‍👩‍👧‍👦</h2>
     <p>방과후, 관문초를 나서 숲을 지나 여느 때처럼 터전으로 나왔습니다.</p>
     <p>1,2학년 숙제를 도와주고 (아이들 수학이 생각보다 어렵네요), 오늘의 놀이는 종이컵과 패러슈트 놀이였습니다!</p>
@@ -361,7 +449,7 @@
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="thanks">
   <h2>🙏 감사합니다</h2>
     <h3>🙏 6월 아마 활동에 함께 해주셔서 감사합니다!</h3>
     <p>한여름 햇살보다 뜨거운 열정을 보여준 6월의 아마 활동에 진심으로 감사드립니다. 조합의 다양한 프로그램이 원활히 운영될 수 있었던 것은 여러분 덕분입니다. 💕</p>
@@ -391,7 +479,7 @@
     </table>
 </div>
 
-    <div class="section">
+    <div class="section" id="camp">
   <h2>🌞⛱️ 두근두근 여름캠프 안내</h2>
   <h3>진짜 여름방학은 두근두근과 함께!</h3>
     <ul>
@@ -415,5 +503,32 @@
   </p>
 </div>
   </div>
+  <nav class="mini-tab">
+  <a href="#greeting">인사말</a>
+  <a href="#activities">활동</a>
+  <a href="#pingpong">탁구</a>
+  <a href="#preview">다음달</a>
+</nav>
+/* 스타일에 추가 */
+.mini-tab{
+  position: sticky;
+  bottom: 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  background: transparent;
+  margin-top: 24px;
+  z-index: 50;
+}
+.mini-tab a{
+  background: #1f6bff;
+  color:#fff; text-decoration:none;
+  padding: 8px 12px; border-radius: 999px;
+  font-size: .9em;
+  box-shadow: 0 4px 8px rgba(31,107,255,.25);
+}
+@media(min-width: 769px){
+  .mini-tab{ display:none; } /* 데스크탑에선 감춤 */
+}
 </body>
 </html>
