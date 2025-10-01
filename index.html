@@ -180,7 +180,27 @@ html { scroll-behavior: smooth; }
   .cover-quick{ padding: 12px; }
   .cover-quick .cover-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
+/* 스타일에 추가 */
+.mini-tab{
+  position: sticky;
+  bottom: 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  background: transparent;
+  margin-top: 24px;
+  z-index: 50;
+}
+.mini-tab a{
+  background: #1f6bff;
+  color:#fff; text-decoration:none;
+  padding: 8px 12px; border-radius: 999px;
+  font-size: .9em;
+  box-shadow: 0 4px 8px rgba(31,107,255,.25);
+}
+@media(min-width: 769px){
+  .mini-tab{ display:none; } /* 데스크탑에선 감춤 */
+}
   </style>
   <script>
     window.onload = function () {
@@ -505,32 +525,5 @@ html { scroll-behavior: smooth; }
   </p>
 </div>
   </div>
-  <nav class="mini-tab">
-  <a href="#greeting">인사말</a>
-  <a href="#activities">활동</a>
-  <a href="#pingpong">탁구</a>
-  <a href="#preview">다음달</a>
-</nav>
-/* 스타일에 추가 */
-.mini-tab{
-  position: sticky;
-  bottom: 8px;
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  background: transparent;
-  margin-top: 24px;
-  z-index: 50;
-}
-.mini-tab a{
-  background: #1f6bff;
-  color:#fff; text-decoration:none;
-  padding: 8px 12px; border-radius: 999px;
-  font-size: .9em;
-  box-shadow: 0 4px 8px rgba(31,107,255,.25);
-}
-@media(min-width: 769px){
-  .mini-tab{ display:none; } /* 데스크탑에선 감춤 */
-}
 </body>
 </html>
